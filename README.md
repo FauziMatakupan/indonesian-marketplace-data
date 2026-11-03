@@ -1,5 +1,10 @@
 # Indonesian Marketplace Data — Schemas & Samples
 
+[![validate](https://github.com/FauziMatakupan/indonesian-marketplace-data/actions/workflows/validate.yml/badge.svg)](https://github.com/FauziMatakupan/indonesian-marketplace-data/actions/workflows/validate.yml)
+[![release](https://img.shields.io/github/v/release/FauziMatakupan/indonesian-marketplace-data)](https://github.com/FauziMatakupan/indonesian-marketplace-data/releases)
+[![license: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![data: CC BY 4.0](https://img.shields.io/badge/data-CC%20BY%204.0-brightgreen.svg)](LICENSE-DATA)
+
 Open schema notes and small, real sample datasets for Indonesian marketplaces:
 **OLX Indonesia**, four Indonesian job boards, and **Carsome** used cars.
 
