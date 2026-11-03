@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use these schemas or samples, cite this repository."
+title: "Indonesian Marketplace Data — Schemas & Samples"
+authors:
+  - family-names: Matakupan
+    given-names: Muhamad Fauzi Qur'anif Huda
+date-released: 2026-11-03
+url: "https://github.com/FauziMatakupan/indonesian-marketplace-data"
+version: 0.1.0
+license: MIT
