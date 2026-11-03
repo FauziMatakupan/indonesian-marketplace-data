@@ -26,5 +26,5 @@ Thanks for helping improve Indonesian marketplace data modeling.
 
 ## License of contributions
 
-By contributing, you agree that code and schemas are licensed under MIT and dataset
-samples under CC BY 4.0, matching this repository.
+By contributing, you agree that code and schemas are licensed under MIT, and dataset
+samples are provided under the terms in [LICENSE-DATA](LICENSE-DATA).

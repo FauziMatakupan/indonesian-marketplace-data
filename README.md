@@ -3,7 +3,7 @@
 [![validate](https://github.com/FauziMatakupan/indonesian-marketplace-data/actions/workflows/validate.yml/badge.svg)](https://github.com/FauziMatakupan/indonesian-marketplace-data/actions/workflows/validate.yml)
 [![release](https://img.shields.io/github/v/release/FauziMatakupan/indonesian-marketplace-data)](https://github.com/FauziMatakupan/indonesian-marketplace-data/releases)
 [![license: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![data: CC BY 4.0](https://img.shields.io/badge/data-CC%20BY%204.0-brightgreen.svg)](LICENSE-DATA)
+[![data: sample notice](https://img.shields.io/badge/data-sample%20notice-lightgrey.svg)](LICENSE-DATA)
 
 Open schema notes and small, real sample datasets for Indonesian marketplaces:
 **OLX Indonesia**, four Indonesian job boards, and **Carsome** used cars.
@@ -95,7 +95,8 @@ additional public sample rows that do not contain personal data. See
 ## License
 
 - Code and JSON Schemas: [MIT](LICENSE)
-- Dataset samples: [CC BY 4.0](LICENSE-DATA)
+- Dataset samples: [sample notice](LICENSE-DATA) — provided for schema evaluation;
+  rights in the original listings remain with the marketplaces and listing owners.
 
 ## Disclaimer
 

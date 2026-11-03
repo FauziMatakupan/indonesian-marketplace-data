@@ -1,16 +1,19 @@
-Dataset samples in this repository are licensed under the
-Creative Commons Attribution 4.0 International License (CC BY 4.0).
+# Dataset Sample Notice
 
-You are free to:
-- Share — copy and redistribute the material in any medium or format.
-- Adapt — remix, transform, and build upon the material for any purpose.
+The JSON and CSV files in `datasets/` are small snapshots of **public marketplace
+listings**, provided solely for schema review, prototyping, and teaching.
 
-Under the following terms:
-- Attribution — give appropriate credit, provide a link to the license, and indicate if
-  changes were made.
+Rights in the original listings remain with the marketplace and the respective listing
+owners. This repository does **not** grant a license to redistribute the underlying
+content at scale, to build a competing database, or to use it in violation of the source
+marketplace's terms of service.
 
-Full license text: https://creativecommons.org/licenses/by/4.0/legalcode
+If you reuse a sample:
 
-Suggested attribution:
-"Indonesian Marketplace Data — Schemas & Samples" by Muhamad Fauzi Qur'anif Huda
-Matakupan, licensed under CC BY 4.0.
+- attribute the source marketplace and this repository;
+- keep the sample small and transformative (schema evaluation, testing, teaching);
+- do not add seller names, phone numbers, emails, or exact coordinates;
+- follow the rules in [ETHICS.md](ETHICS.md).
+
+For recurring or large-scale collection, use the source marketplace's official terms and
+the Actors linked in the README.
