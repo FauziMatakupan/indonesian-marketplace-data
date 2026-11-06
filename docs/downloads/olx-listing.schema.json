@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/FauziMatakupan/indonesian-marketplace-data/schemas/olx-listing.schema.json",
+  "title": "OLX Indonesia Listing",
+  "description": "Normalized schema for one public OLX Indonesia classified listing.",
+  "type": "object",
+  "required": ["adId", "name", "price", "url"],
+  "properties": {
+    "adId": { "type": "string", "description": "OLX listing ID; stable deduplication key." },
+    "name": { "type": "string", "description": "Listing title." },
+    "adDescription": { "type": ["string", "null"], "description": "Seller-written description." },
+    "price": { "type": ["integer", "null"], "minimum": 0, "description": "Asking price in IDR." },
+    "priceDisplay": { "type": ["string", "null"], "description": "Price as displayed on OLX." },
+    "condition": { "type": ["string", "null"], "description": "Bekas / Baru when provided." },
+    "itemType": { "type": ["string", "null"], "description": "OLX item type label." },
+    "categoryId": { "type": ["string", "null"], "description": "OLX category ID." },
+    "country": { "type": ["string", "null"], "description": "Country name." },
+    "region": { "type": ["string", "null"], "description": "Province / region." },
+    "city": { "type": ["string", "null"], "description": "City or regency." },
+    "district": { "type": ["string", "null"], "description": "District / kecamatan." },
+    "sellerType": { "type": ["string", "null"], "description": "OLX seller account type." },
+    "sellerKyc": { "type": ["boolean", "null"], "description": "OLX KYC flag, not an independent verification." },
+    "favorites": { "type": ["integer", "null"], "minimum": 0, "description": "Saves at collection time." },
+    "createdAt": { "type": ["string", "null"], "format": "date-time", "description": "Listing creation timestamp." },
+    "isNew": { "type": ["boolean", "null"], "description": "OLX new-listing flag." },
+    "status": { "type": ["string", "null"], "description": "Listing status at collection time." },
+    "url": { "type": "string", "format": "uri", "description": "Canonical public listing URL." },
+    "query": { "type": ["string", "null"], "description": "Search query used for collection." }
+  }
+}

@@ -1,0 +1,148 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://fauzimatakupan.github.io/indonesian-marketplace-data/schemas/dubai-property-listing.schema.json",
+  "title": "Dubai Property Listing",
+  "description": "One public PropertyFinder listing in Dubai/UAE, normalized for analytics. Contact details and agent names are intentionally excluded from published samples.",
+  "type": "object",
+  "required": [
+    "source",
+    "listingId",
+    "url",
+    "price",
+    "currency",
+    "transactionType",
+    "propertyType",
+    "bedrooms",
+    "sizeSqft",
+    "city",
+    "community",
+    "listedDate"
+  ],
+  "properties": {
+    "_type": {
+      "type": "string",
+      "description": "Record kind, always 'property'."
+    },
+    "source": {
+      "type": "string",
+      "description": "Source portal, e.g. 'propertyfinder'."
+    },
+    "listingId": {
+      "type": "string",
+      "description": "Stable portal listing id; use as the deduplication key across runs."
+    },
+    "url": {
+      "type": "string",
+      "description": "Canonical public listing URL."
+    },
+    "name": {
+      "type": "string",
+      "description": "Listing headline as published by the broker."
+    },
+    "price": {
+      "type": "integer",
+      "description": "Asking price in the listing currency (AED for Dubai)."
+    },
+    "currency": {
+      "type": "string",
+      "description": "ISO currency code, e.g. 'AED'."
+    },
+    "pricePeriod": {
+      "type": "string",
+      "description": "Billing period for rentals (e.g. 'yearly'); empty or fixed for sales."
+    },
+    "transactionType": {
+      "type": "string",
+      "description": "Sale or rent."
+    },
+    "propertyType": {
+      "type": "string",
+      "description": "Apartment, villa, townhouse, penthouse, etc."
+    },
+    "bedrooms": {
+      "type": "integer",
+      "description": "Number of bedrooms; studios are 0."
+    },
+    "bathrooms": {
+      "type": "integer",
+      "description": "Number of bathrooms."
+    },
+    "sizeSqft": {
+      "type": "integer",
+      "description": "Built-up area in square feet."
+    },
+    "sizeSqm": {
+      "type": "number",
+      "description": "Built-up area in square metres."
+    },
+    "pricePerArea": {
+      "type": ["number", "null"],
+      "description": "Portal-computed price per area unit; null when the portal omits it."
+    },
+    "city": {
+      "type": "string",
+      "description": "City, e.g. 'Dubai'."
+    },
+    "community": {
+      "type": "string",
+      "description": "Community name, e.g. 'Dubai Marina'."
+    },
+    "subCommunity": {
+      "type": ["string", "null"],
+      "description": "Sub-community or building cluster when available."
+    },
+    "completionStatus": {
+      "type": ["string", "null"],
+      "description": "Ready or off-plan when the portal exposes it."
+    },
+    "furnished": {
+      "type": "string",
+      "description": "Furnishing state as published."
+    },
+    "isVerified": {
+      "type": "boolean",
+      "description": "Portal verification flag."
+    },
+    "isExclusive": {
+      "type": "boolean",
+      "description": "Exclusive-listing flag."
+    },
+    "isNewConstruction": {
+      "type": "boolean",
+      "description": "New-construction flag."
+    },
+    "latitude": {
+      "type": "number",
+      "description": "Listing latitude (approximate for privacy)."
+    },
+    "longitude": {
+      "type": "number",
+      "description": "Listing longitude (approximate for privacy)."
+    },
+    "listedDate": {
+      "type": "string",
+      "description": "Date the listing went live (ISO 8601)."
+    },
+    "scrapedAt": {
+      "type": "string",
+      "description": "Collection timestamp (ISO 8601)."
+    },
+    "communityAvgPrice": {
+      "type": "integer",
+      "description": "Portal-computed average price for the community at collection time."
+    },
+    "communityPriceTrend12mPct": {
+      "type": ["number", "null"],
+      "description": "Portal-computed 12-month price trend for the community, in percent."
+    },
+    "communityActiveListings": {
+      "type": "integer",
+      "description": "Number of active listings in the community at collection time."
+    },
+    "rera": {
+      "type": ["string", "null"],
+      "description": "RERA permit/registration string when published."
+    }
+  },
+  "additionalProperties": true
+}

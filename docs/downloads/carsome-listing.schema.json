@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/FauziMatakupan/indonesian-marketplace-data/schemas/carsome-listing.schema.json",
+  "title": "Carsome Used Car Listing",
+  "description": "Normalized schema for one Carsome used-car listing (ID, MY, SG, TH).",
+  "type": "object",
+  "required": ["itemId", "itemName", "itemUrl"],
+  "properties": {
+    "itemId": { "type": "string", "description": "Carsome listing ID; stable deduplication key." },
+    "itemName": { "type": "string", "description": "Full vehicle listing title." },
+    "itemUrl": { "type": "string", "format": "uri", "description": "Canonical public listing URL." },
+    "brand": { "type": ["string", "null"] },
+    "model": { "type": ["string", "null"] },
+    "year": { "type": ["integer", "null"], "minimum": 1900, "maximum": 2100 },
+    "mileageKm": { "type": ["integer", "null"], "minimum": 0 },
+    "priceIdr": { "type": ["integer", "null"], "minimum": 0, "description": "Asking price in the listing currency; field name retained for compatibility." },
+    "currency": { "type": ["string", "null"], "description": "ISO currency code, e.g. IDR." },
+    "transmission": { "type": ["string", "null"] },
+    "fuelType": { "type": ["string", "null"] },
+    "color": { "type": ["string", "null"] },
+    "dealer": { "type": ["string", "null"], "description": "Selling dealer / location." },
+    "country": { "type": ["string", "null"], "description": "Market code: id, my, sg, th." },
+    "sourceLabel": { "type": ["string", "null"] },
+    "scrapedAt": { "type": ["string", "null"], "format": "date-time" }
+  }
+}

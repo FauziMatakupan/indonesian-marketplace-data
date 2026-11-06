@@ -1,0 +1,46 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/FauziMatakupan/indonesian-marketplace-data/schemas/job-listing.schema.json",
+  "title": "Unified Indonesian Job Listing",
+  "description": "One normalized job record across Glints, Kalibrr, Dealls, and Pintarnya.",
+  "type": "object",
+  "required": ["id", "portal", "jobTitle", "jobUrl"],
+  "properties": {
+    "id": { "type": "string", "description": "Unique record ID, prefixed by portal." },
+    "portal": { "type": "string", "enum": ["glints", "kalibrr", "dealls", "pintarnya"] },
+    "jobTitle": { "type": "string" },
+    "companyName": { "type": ["string", "null"] },
+    "companyIndustry": { "type": ["string", "null"] },
+    "companyWebsite": { "type": ["string", "null"], "format": "uri" },
+    "companyLogo": { "type": ["string", "null"], "format": "uri" },
+    "workArrangement": { "type": ["string", "null"], "enum": ["ONSITE", "REMOTE", "HYBRID", null] },
+    "employmentType": { "type": ["string", "null"], "enum": ["FULL_TIME", "PART_TIME", "CONTRACT", "INTERNSHIP", null] },
+    "location": { "type": ["string", "null"], "description": "Full location string." },
+    "city": { "type": ["string", "null"] },
+    "province": { "type": ["string", "null"] },
+    "country": { "type": ["string", "null"] },
+    "isRemote": { "type": "boolean" },
+    "salary": {
+      "type": ["object", "null"],
+      "required": ["min", "max", "currency", "interval", "isShown"],
+      "properties": {
+        "min": { "type": ["number", "null"] },
+        "max": { "type": ["number", "null"] },
+        "currency": { "type": ["string", "null"] },
+        "interval": { "type": ["string", "null"] },
+        "isShown": { "type": "boolean" }
+      }
+    },
+    "minExperienceYears": { "type": ["number", "null"] },
+    "educationLevel": { "type": ["string", "null"] },
+    "skills": { "type": "array", "items": { "type": "string" } },
+    "perks": { "type": "array", "items": { "type": "string" } },
+    "hrResponseRate": { "type": ["number", "null"] },
+    "jobDescription": { "type": ["string", "null"] },
+    "jobQualifications": { "type": ["string", "null"] },
+    "jobUrl": { "type": "string", "format": "uri" },
+    "applicationDeadline": { "type": ["string", "null"], "format": "date-time" },
+    "postedAt": { "type": ["string", "null"], "format": "date-time" },
+    "scrapedAt": { "type": ["string", "null"], "format": "date-time" }
+  }
+}
