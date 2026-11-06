@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Indonesian Marketplace Data — Schemas & Samples</title>
-<meta name="description" content="Open schemas and real sample datasets for OLX Indonesia, four Indonesian job boards, and Carsome used cars.">
+<title>Marketplace Data — Schemas & Samples</title>
+<meta name="description" content="Open schemas and real sample datasets for OLX Indonesia, four Indonesian job boards, Carsome used cars, and Dubai property listings.">
 <style>
   :root{
     --bg:#080c17; --panel:#101829; --panel2:#0d1423; --text:#e8eefc;
@@ -25,7 +25,7 @@
   h1{font-size:clamp(30px,5vw,52px);line-height:1.08;margin:14px 0 14px;letter-spacing:-.02em}
   .lead{color:var(--muted);font-size:18px;max-width:720px;margin:0 0 30px}
   .lead strong{color:var(--text);font-weight:600}
-  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:30px 0 42px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:30px 0 42px}
   @media(max-width:820px){.grid{grid-template-columns:1fr}}
   .card{
     background:linear-gradient(180deg,var(--panel) 0%,var(--panel2) 100%);
@@ -51,12 +51,13 @@
 </head>
 <body>
 <main class="wrap">
-  <div class="eyebrow">Open data notes · Indonesia</div>
-  <h1>Indonesian marketplace data, modeled properly.</h1>
+  <div class="eyebrow">Open data notes · Indonesia &amp; UAE</div>
+  <h1>Marketplace data, modeled properly.</h1>
   <p class="lead">
     Open <strong>JSON Schemas</strong> and small, <strong>real sample datasets</strong> for
-    OLX Indonesia, four Indonesian job boards, and Carsome used cars. Stable IDs, IDR
-    prices, normalized locations, and explicit limitations.
+    OLX Indonesia, four Indonesian job boards, Carsome used cars, and Dubai property
+    listings. Stable IDs, local-currency prices, normalized locations, and explicit
+    limitations.
   </p>
 
   <section class="grid">
@@ -92,6 +93,18 @@
         <a href="https://github.com/FauziMatakupan/indonesian-marketplace-data/blob/main/schemas/carsome-listing.schema.json">Schema</a>
       </div>
     </article>
+
+    <article class="card">
+      <div class="meta">40 rows · 6 Nov 2026</div>
+      <h2>Dubai property</h2>
+      <p>PropertyFinder sale and rent listings: AED price, price period, bedrooms, size in
+         sqft and sqm, community, coordinates, and community trend metrics. Broker contact
+         data omitted.</p>
+      <div class="links">
+        <a href="https://github.com/FauziMatakupan/indonesian-marketplace-data/tree/main/datasets/dubai-propertyfinder">Dataset</a>
+        <a href="https://github.com/FauziMatakupan/indonesian-marketplace-data/blob/main/schemas/dubai-property-listing.schema.json">Schema</a>
+      </div>
+    </article>
   </section>
 
   <section class="section">
@@ -109,7 +122,8 @@
       The samples are free. For scheduled collection, these Apify Actors produce the same schemas:
       <a href="https://apify.com/matakupanlabs/olx-indonesia-listings-scraper">OLX</a>,
       <a href="https://apify.com/matakupanlabs/indonesia-tech-jobs-scraper">4 job boards</a>,
-      <a href="https://apify.com/matakupanlabs/carsome-used-car-scraper">Carsome</a>.
+      <a href="https://apify.com/matakupanlabs/carsome-used-car-scraper">Carsome</a>,
+      <a href="https://apify.com/matakupanlabs/dubai-property-listings-scraper">Dubai property</a>.
       They are pay-per-result; the data and schemas here are not.
     </p>
   </section>

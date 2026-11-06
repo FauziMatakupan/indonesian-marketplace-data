@@ -12,6 +12,7 @@ PAIRS = [
     ("schemas/olx-listing.schema.json", "datasets/olx-indonesia/sample-2026-11-03.json"),
     ("schemas/job-listing.schema.json", "datasets/job-boards/sample-2026-11-03.json"),
     ("schemas/carsome-listing.schema.json", "datasets/carsome/sample-2026-10-29.json"),
+    ("schemas/dubai-property-listing.schema.json", "datasets/dubai-propertyfinder/sample-2026-11-06.json"),
 ]
 
 

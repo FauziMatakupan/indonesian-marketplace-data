@@ -1,15 +1,15 @@
-# Indonesian Marketplace Data — Schemas & Samples
+# Marketplace Data — Schemas & Samples (Indonesia & Dubai)
 
 [![validate](https://github.com/FauziMatakupan/indonesian-marketplace-data/actions/workflows/validate.yml/badge.svg)](https://github.com/FauziMatakupan/indonesian-marketplace-data/actions/workflows/validate.yml)
 [![release](https://img.shields.io/github/v/release/FauziMatakupan/indonesian-marketplace-data)](https://github.com/FauziMatakupan/indonesian-marketplace-data/releases)
 [![license: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![data: sample notice](https://img.shields.io/badge/data-sample%20notice-lightgrey.svg)](LICENSE-DATA)
 
-Open schema notes and small, real sample datasets for Indonesian marketplaces:
-**OLX Indonesia**, four Indonesian job boards, and **Carsome** used cars.
+Open schema notes and small, real sample datasets for **OLX Indonesia**, four Indonesian
+job boards, **Carsome** used cars, and **Dubai property listings** (PropertyFinder).
 
-The goal is simple: make Indonesian marketplace data easier to model. Stable marketplace
-IDs, prices in IDR, normalized locations, explicit nulls, and documented limitations —
+The goal is simple: make marketplace data easier to model. Stable marketplace IDs, prices
+in the local currency, normalized locations, explicit nulls, and documented limitations —
 instead of one-off CSV exports with inconsistent columns.
 
 These samples are snapshots, not live feeds. They are intended for schema review,
@@ -22,6 +22,7 @@ prototyping, and teaching. For recurring collection, use the Actors linked below
 | OLX Indonesia listings | 25 | 2026-11-03 | [JSON](datasets/olx-indonesia/sample-2026-11-03.json) · [CSV](datasets/olx-indonesia/sample-2026-11-03.csv) |
 | Indonesian job boards (4 portals) | 8 | 2026-11-03 | [JSON](datasets/job-boards/sample-2026-11-03.json) · [CSV](datasets/job-boards/sample-2026-11-03.csv) |
 | Carsome used cars | 10 | 2026-10-29 | [JSON](datasets/carsome/sample-2026-10-29.json) · [CSV](datasets/carsome/sample-2026-10-29.csv) |
+| Dubai property listings | 40 | 2026-11-06 | [JSON](datasets/dubai-propertyfinder/sample-2026-11-06.json) · [CSV](datasets/dubai-propertyfinder/sample-2026-11-06.csv) |
 
 Every dataset has a README with method, field notes, and limitations.
 
@@ -32,6 +33,7 @@ Every dataset has a README with method, field notes, and limitations.
 | [olx-listing.schema.json](schemas/olx-listing.schema.json) | One OLX Indonesia classified listing |
 | [job-listing.schema.json](schemas/job-listing.schema.json) | One job record across Glints, Kalibrr, Dealls, Pintarnya |
 | [carsome-listing.schema.json](schemas/carsome-listing.schema.json) | One Carsome used-car listing |
+| [dubai-property-listing.schema.json](schemas/dubai-property-listing.schema.json) | One Dubai/UAE PropertyFinder listing |
 
 The schemas are JSON Schema draft-07. Versioning notes live in
 [schemas/README.md](schemas/README.md).
@@ -69,7 +71,7 @@ python -c "import pandas as pd; print(pd.read_csv('datasets/job-boards/sample-20
 - Asking prices, not transaction prices.
 - Listings can be sold, removed, or republished; snapshots age quickly.
 - Seller-written descriptions may contain typos, emoji, or promotional text.
-- Seller names and exact coordinates are omitted from the public samples.
+- Seller, broker, and agent contact data are omitted from the public samples.
 
 Read [ETHICS.md](ETHICS.md) before using or extending these datasets.
 
@@ -80,6 +82,7 @@ I maintain Apify Actors that produce these schemas:
 - [OLX Indonesia Listings Scraper](https://apify.com/matakupanlabs/olx-indonesia-listings-scraper)
 - [Indonesia Jobs Scraper — 4 job boards](https://apify.com/matakupanlabs/indonesia-tech-jobs-scraper)
 - [Carsome Used Car Scraper](https://apify.com/matakupanlabs/carsome-used-car-scraper)
+- [Dubai Property Scraper — PropertyFinder](https://apify.com/matakupanlabs/dubai-property-listings-scraper)
 
 **Disclosure:** these are my Actors and they are pay-per-result. The sample datasets and
 schemas in this repository are free.
@@ -101,4 +104,5 @@ additional public sample rows that do not contain personal data. See
 ## Disclaimer
 
 This project is independent and is **not affiliated with OLX, Carsome, Glints, Kalibrr,
-Dealls, or Pintarnya**. Marketplace names are used only to identify the source of the data.
+Dealls, Pintarnya, PropertyFinder, or any Dubai brokerage**. Marketplace names are used
+only to identify the source of the data.
