@@ -2,136 +2,649 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Marketplace Data — Schemas & Samples</title>
-<meta name="description" content="Open schemas and real sample datasets for OLX Indonesia, four Indonesian job boards, Carsome used cars, and Dubai property listings.">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>OLX Listings — free 25-row sample | Matakupan Labs</title>
+<meta name="description" content="A free 25-row sample of public OLX Indonesia classified listings: 20 columns, 12,791 bytes, 1–17 October 2026. No seller names.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --bg:#080c17; --panel:#101829; --panel2:#0d1423; --text:#e8eefc;
-    --muted:#9fb0cc; --line:#22304a; --accent:#5eead4; --accent2:#93c5fd;
+    --ink:#0c0f0d;
+    --paper:#eceee4;
+    --paper-2:#e3e6da;
+    --ink-soft:#1f2721;
+    --muted:#4d564f;
+    --rule:#b7bdac;
+    --rule-soft:#d5d9cb;
+    --green:#1d6b3c;
+    --green-bright:#2f8f57;
+    --green-on-ink:#7cc79a;
+    --on-ink:#eceee4;
+    --on-ink-dim:#a9b3a7;
+    --line-on-ink:#3a453c;
+    --mono:"IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+    --sans:"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --display:"Anton", "Arial Narrow", Impact, sans-serif;
   }
   *{box-sizing:border-box}
-  html,body{margin:0;padding:0}
+  ::selection{background:#cfe4c9;color:var(--ink)}
+  ::-moz-selection{background:#cfe4c9;color:var(--ink)}
+  html{background:var(--ink)}
   body{
-    background:radial-gradient(1200px 600px at 20% -10%, #14223d 0%, transparent 60%),
-               radial-gradient(900px 500px at 90% 0%, #0f2b2a 0%, transparent 55%),
-               var(--bg);
-    color:var(--text);
-    font:16px/1.65 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
-    min-height:100vh;
+    margin:0;
+    background:var(--ink);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
   }
-  .wrap{max-width:1040px;margin:0 auto;padding:56px 22px 40px}
-  .eyebrow{color:var(--accent);font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:700}
-  h1{font-size:clamp(30px,5vw,52px);line-height:1.08;margin:14px 0 14px;letter-spacing:-.02em}
-  .lead{color:var(--muted);font-size:18px;max-width:720px;margin:0 0 30px}
-  .lead strong{color:var(--text);font-weight:600}
-  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin:30px 0 42px}
-  @media(max-width:820px){.grid{grid-template-columns:1fr}}
-  .card{
-    background:linear-gradient(180deg,var(--panel) 0%,var(--panel2) 100%);
-    border:1px solid var(--line);border-radius:16px;padding:20px 18px 18px;
-    display:flex;flex-direction:column;gap:10px;
+  .skip{
+    position:absolute;
+    left:-9999px;
+    top:0;
+    z-index:10;
+    background:var(--paper);
+    color:var(--ink);
+    padding:12px 16px;
+    font-family:var(--mono);
+    font-size:12px;
   }
-  .card h2{font-size:18px;margin:0}
-  .card .meta{color:var(--accent2);font-size:12px;letter-spacing:.04em;text-transform:uppercase;font-weight:700}
-  .card p{color:var(--muted);font-size:14px;margin:0}
-  .links{display:flex;gap:14px;margin-top:auto;padding-top:8px;font-size:14px}
-  a{color:var(--accent);text-decoration:none}
-  a:hover{text-decoration:underline}
-  .section{border-top:1px solid var(--line);padding-top:26px;margin-top:8px}
-  .section h3{font-size:14px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin:0 0 14px}
-  .rules{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-  @media(max-width:820px){.rules{grid-template-columns:1fr}}
-  .rule{background:rgba(255,255,255,.025);border:1px solid var(--line);border-radius:12px;padding:14px}
-  .rule b{display:block;color:var(--text);margin-bottom:4px}
-  .rule span{color:var(--muted);font-size:14px}
-  footer{margin-top:34px;color:var(--muted);font-size:13px;display:flex;gap:18px;flex-wrap:wrap;align-items:center}
-  code{background:#0a1220;border:1px solid var(--line);border-radius:6px;padding:1px 6px;font-size:13px;color:#c7d7f5}
+  .skip:focus{left:12px;top:12px}
+  .sr-only{
+    position:absolute;
+    width:1px;
+    height:1px;
+    padding:0;
+    margin:-1px;
+    overflow:hidden;
+    clip:rect(0,0,0,0);
+    white-space:nowrap;
+    border:0;
+  }
+  .sheet{
+    --pad:clamp(24px,4.4vw,54px);
+    position:relative;
+    width:min(1060px, calc(100% - 48px));
+    margin:clamp(28px,5vw,64px) auto;
+    background:var(--paper);
+    padding:var(--pad);
+  }
+  .crop{
+    position:absolute;
+    width:18px;
+    height:18px;
+    pointer-events:none;
+    border-color:var(--green-bright);
+    border-style:solid;
+    border-width:0;
+  }
+  .crop.tl{top:-13px;left:-13px;border-top-width:1px;border-left-width:1px}
+  .crop.tr{top:-13px;right:-13px;border-top-width:1px;border-right-width:1px}
+  .crop.bl{bottom:-13px;left:-13px;border-bottom-width:1px;border-left-width:1px}
+  .crop.br{bottom:-13px;right:-13px;border-bottom-width:1px;border-right-width:1px}
+
+  .band{
+    margin:calc(var(--pad) * -1) calc(var(--pad) * -1) 0;
+    padding:clamp(20px,3.4vw,34px) var(--pad) clamp(26px,4vw,42px);
+    background:var(--ink);
+    color:var(--on-ink);
+  }
+  .band-meta{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    gap:6px 24px;
+    padding-bottom:12px;
+    border-bottom:1px solid var(--line-on-ink);
+    font-family:var(--mono);
+    font-size:10px;
+    line-height:1.5;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--on-ink-dim);
+  }
+  .band-main{
+    display:grid;
+    grid-template-columns:minmax(0,1.15fr) minmax(250px,.85fr);
+    gap:clamp(20px,4vw,52px);
+    align-items:end;
+    padding-top:clamp(24px,3.6vw,38px);
+  }
+  .stamp{
+    display:inline-block;
+    margin:0 0 16px;
+    padding:6px 10px;
+    background:var(--green-on-ink);
+    color:var(--ink);
+    font-family:var(--mono);
+    font-size:10.5px;
+    font-weight:500;
+    line-height:1.2;
+    letter-spacing:.2em;
+  }
+  h1{
+    margin:0;
+    font-family:var(--display);
+    font-weight:400;
+    font-size:clamp(52px,9vw,116px);
+    line-height:.88;
+    letter-spacing:.005em;
+    text-transform:uppercase;
+    color:var(--on-ink);
+  }
+  .band-side{max-width:42ch}
+  .period{
+    display:block;
+    margin:0 0 12px;
+    padding-top:12px;
+    border-top:2px solid #4a564c;
+    font-family:var(--mono);
+    font-size:clamp(15px,1.7vw,19px);
+    line-height:1.4;
+    letter-spacing:.02em;
+    color:var(--green-on-ink);
+  }
+  .band-side p{
+    margin:0 0 10px;
+    font-size:15px;
+    line-height:1.6;
+    color:var(--on-ink-dim);
+  }
+  .band-side .spec{
+    margin:0;
+    font-family:var(--mono);
+    font-size:12px;
+    line-height:1.5;
+    letter-spacing:.02em;
+    color:var(--on-ink);
+  }
+
+  .body{
+    display:grid;
+    grid-template-columns:minmax(0,1.5fr) minmax(270px,.82fr);
+    gap:clamp(26px,4vw,46px);
+    padding-top:clamp(28px,4vw,42px);
+  }
+  .section-head{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:6px 18px;
+    margin:0 0 12px;
+  }
+  h2{
+    margin:0;
+    font-family:var(--display);
+    font-weight:400;
+    font-size:clamp(19px,2.2vw,26px);
+    line-height:1;
+    letter-spacing:.02em;
+    text-transform:uppercase;
+  }
+  .micro{
+    margin:0;
+    font-family:var(--mono);
+    font-size:10px;
+    line-height:1.5;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+
+  .table-scroll{
+    overflow-x:auto;
+    border-top:2px solid var(--ink);
+    border-bottom:1px solid var(--ink);
+  }
+  table{width:100%;border-collapse:collapse}
+  .ledger-table{min-width:560px;font-size:13.5px}
+  .ledger-table th{
+    padding:10px;
+    border-bottom:1px dashed var(--rule);
+    font-family:var(--mono);
+    font-size:9.5px;
+    font-weight:500;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    text-align:left;
+    white-space:nowrap;
+    color:var(--muted);
+  }
+  .ledger-table th.price{text-align:right}
+  .ledger-table td{
+    padding:12px 10px;
+    border-bottom:1px dashed var(--rule-soft);
+    vertical-align:top;
+    line-height:1.45;
+  }
+  .ledger-table tbody tr:last-child td{border-bottom:0}
+  .ledger-table td.title{min-width:230px;font-size:13.5px;color:var(--ink-soft)}
+  .ledger-table td.price{
+    text-align:right;
+    font-family:var(--mono);
+    font-size:12.5px;
+    font-weight:500;
+    white-space:nowrap;
+    color:var(--green);
+  }
+  .ledger-table td.meta{
+    font-size:13px;
+    white-space:nowrap;
+    color:var(--ink-soft);
+  }
+  .table-note{
+    margin:10px 0 0;
+    font-family:var(--mono);
+    font-size:10.5px;
+    line-height:1.6;
+    color:var(--muted);
+  }
+  .privacy{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:baseline;
+    gap:8px 16px;
+    margin:18px 0 0;
+    padding:13px 0;
+    border-top:1px dashed var(--rule);
+    border-bottom:1px dashed var(--rule);
+  }
+  .privacy-label{
+    font-family:var(--mono);
+    font-size:9.5px;
+    font-weight:500;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--green);
+  }
+  .privacy p{
+    flex:1 1 260px;
+    margin:0;
+    font-size:12.5px;
+    line-height:1.55;
+    color:var(--muted);
+  }
+
+  .plate{
+    align-self:start;
+    padding:clamp(20px,2.6vw,26px);
+    background:var(--ink);
+    color:var(--on-ink);
+  }
+  .plate-label{
+    margin:0 0 12px;
+    padding-bottom:10px;
+    border-bottom:1px solid var(--line-on-ink);
+    font-family:var(--mono);
+    font-size:9.5px;
+    line-height:1.5;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--green-on-ink);
+  }
+  .plate dl{margin:0}
+  .plate dl > div{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:12px;
+    padding:8px 0;
+    border-bottom:1px dashed var(--line-on-ink);
+  }
+  .plate dt{
+    font-family:var(--mono);
+    font-size:9.5px;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--on-ink-dim);
+  }
+  .plate dd{
+    margin:0;
+    font-family:var(--mono);
+    font-size:12px;
+    line-height:1.45;
+    text-align:right;
+    color:var(--on-ink);
+  }
+  .plate dd.hl{color:var(--green-on-ink)}
+  .btn{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:12px;
+    min-height:46px;
+    margin:18px 0 10px;
+    padding:13px 14px;
+    background:var(--paper);
+    border:1px solid var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:13.5px;
+    font-weight:600;
+    text-decoration:none;
+    transition:background .16s ease, border-color .16s ease, color .16s ease;
+  }
+  .btn span{
+    font-family:var(--mono);
+    font-size:10.5px;
+    font-weight:400;
+    color:var(--muted);
+  }
+  .btn:hover{background:var(--green-on-ink);border-color:var(--green-on-ink);color:var(--ink)}
+  .btn:hover span{color:var(--ink-soft)}
+  .btn:focus-visible{outline:2px solid var(--green-on-ink);outline-offset:3px}
+  .plate .micro{color:var(--on-ink-dim)}
+  .url{
+    display:block;
+    margin:12px 0 0;
+    font-family:var(--mono);
+    font-size:10.5px;
+    line-height:1.5;
+    color:var(--on-ink);
+    text-decoration:none;
+    border-bottom:1px solid var(--green-on-ink);
+    overflow-wrap:anywhere;
+  }
+  .url:hover{color:var(--green-on-ink)}
+  .url:focus-visible{outline:2px solid var(--green-on-ink);outline-offset:3px}
+  .plate-foot{
+    margin:14px 0 0;
+    font-size:11.5px;
+    line-height:1.55;
+    color:var(--on-ink-dim);
+  }
+
+  .columns-section{margin-top:clamp(34px,4.6vw,52px)}
+  .cols{
+    margin:0;
+    border-top:1px solid var(--ink);
+  }
+  .cols-row{
+    display:grid;
+    grid-template-columns:132px minmax(0,1fr);
+    gap:0 20px;
+    padding:11px 0;
+    border-bottom:1px dashed var(--rule);
+  }
+  .cols dt{
+    padding-top:2px;
+    font-family:var(--mono);
+    font-size:9.5px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+  .cols dd{
+    margin:0;
+    font-family:var(--mono);
+    font-size:11.5px;
+    line-height:1.9;
+    color:var(--ink-soft);
+  }
+  .cols code{font:inherit;color:var(--ink)}
+
+  .more{margin-top:clamp(34px,4.6vw,52px)}
+  .index{
+    margin:0;
+    padding:0;
+    list-style:none;
+    border-top:1px solid var(--ink);
+  }
+  .index-row{
+    display:grid;
+    grid-template-columns:34px minmax(0,1.3fr) minmax(120px,.9fr) auto;
+    gap:8px 16px;
+    align-items:baseline;
+    padding:13px 0;
+    border-bottom:1px dashed var(--rule);
+  }
+  .idx{
+    font-family:var(--mono);
+    font-size:10px;
+    color:var(--muted);
+  }
+  .index-name{font-size:14.5px;font-weight:500;color:var(--ink)}
+  .index-meta{font-family:var(--mono);font-size:10.5px;color:var(--muted)}
+  .index-links{
+    display:flex;
+    justify-content:flex-end;
+    gap:14px;
+    font-family:var(--mono);
+    font-size:10.5px;
+  }
+  .index-links a{
+    color:var(--green);
+    text-decoration:none;
+    border-bottom:1px solid transparent;
+  }
+  .index-links a:hover{border-bottom-color:var(--green)}
+  .index-links a:focus-visible{outline:2px solid var(--green-bright);outline-offset:3px}
+
+  footer{
+    margin-top:clamp(38px,5vw,58px);
+    padding-top:16px;
+    border-top:2px solid var(--ink);
+  }
+  .footer-row{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    gap:8px 24px;
+    font-family:var(--mono);
+    font-size:10px;
+    line-height:1.5;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--muted);
+  }
+  .footer-row a{
+    font-size:10.5px;
+    letter-spacing:.02em;
+    text-transform:none;
+    color:var(--ink);
+    text-decoration:none;
+    border-bottom:1px solid var(--green);
+  }
+  .footer-row a:hover{color:var(--green)}
+  .footer-row a:focus-visible{outline:2px solid var(--green-bright);outline-offset:3px}
+  .footer-note{
+    margin:14px 0 0;
+    max-width:78ch;
+    font-size:11.5px;
+    line-height:1.6;
+    color:var(--muted);
+  }
+  .footer-disclaimer{
+    margin:10px 0 0;
+    font-family:var(--mono);
+    font-size:10px;
+    letter-spacing:.05em;
+    color:var(--green);
+  }
+
+  @media(max-width:900px){
+    .band-main{grid-template-columns:1fr;align-items:start}
+    .band-side{max-width:none}
+    .body{grid-template-columns:1fr}
+  }
+  @media(max-width:600px){
+    .sheet{width:calc(100% - 24px);--pad:22px;margin:18px auto}
+    .crop{display:none}
+    h1{font-size:clamp(48px,14vw,72px)}
+    .band-meta{font-size:9px;letter-spacing:.1em}
+    .cols-row{grid-template-columns:1fr;gap:4px}
+    .index-row{grid-template-columns:28px minmax(0,1fr);gap:4px 10px}
+    .index-meta{grid-column:2}
+    .index-links{grid-column:2;justify-content:flex-start}
+    .footer-row{display:block}
+    .footer-row a{display:inline-block;margin-top:6px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .btn{transition:none}
+  }
 </style>
 </head>
 <body>
-<main class="wrap">
-  <div class="eyebrow">Open data notes · Indonesia &amp; UAE</div>
-  <h1>Marketplace data, modeled properly.</h1>
-  <p class="lead">
-    Open <strong>JSON Schemas</strong> and small, <strong>real sample datasets</strong> for
-    OLX Indonesia, four Indonesian job boards, Carsome used cars, and Dubai property
-    listings. Stable IDs, local-currency prices, normalized locations, and explicit
-    limitations.
-  </p>
+<a class="skip" href="#main">Skip to content</a>
+<main id="main" class="sheet">
+  <span class="crop tl" aria-hidden="true"></span>
+  <span class="crop tr" aria-hidden="true"></span>
+  <span class="crop bl" aria-hidden="true"></span>
+  <span class="crop br" aria-hidden="true"></span>
 
-  <section class="grid">
-    <article class="card">
-      <div class="meta">25 rows · 3 Nov 2026</div>
-      <h2>OLX Indonesia</h2>
-      <p>Classified listings with IDR asking prices, condition, category, city/district,
-         seller type, and canonical URL. Seller names and exact coordinates omitted.</p>
-      <div class="links">
-        <a href="downloads/olx-sample-2026-11-03.csv">Dataset</a>
-        <a href="downloads/olx-listing.schema.json">Schema</a>
-      </div>
-    </article>
-
-    <article class="card">
-      <div class="meta">8 rows · 4 portals</div>
-      <h2>Indonesian job boards</h2>
-      <p>One normalized record across Glints, Kalibrr, Dealls, and Pintarnya: salary object,
-         work arrangement, employment type, skills, and location hierarchy.</p>
-      <div class="links">
-        <a href="downloads/jobs-sample-2026-11-03.csv">Dataset</a>
-        <a href="downloads/job-listing.schema.json">Schema</a>
-      </div>
-    </article>
-
-    <article class="card">
-      <div class="meta">10 rows · 29 Oct 2026</div>
-      <h2>Carsome used cars</h2>
-      <p>Brand, model, year, mileage, asking price, transmission, fuel type, color, dealer,
-         and market code for ID/MY/SG/TH inventory.</p>
-      <div class="links">
-        <a href="downloads/carsome-sample-2026-10-29.csv">Dataset</a>
-        <a href="downloads/carsome-listing.schema.json">Schema</a>
-      </div>
-    </article>
-
-    <article class="card">
-      <div class="meta">40 rows · 6 Nov 2026</div>
-      <h2>Dubai property</h2>
-      <p>PropertyFinder sale and rent listings: AED price, price period, bedrooms, size in
-         sqft and sqm, community, coordinates, and community trend metrics. Broker contact
-         data omitted.</p>
-      <div class="links">
-        <a href="downloads/dubai-sample-2026-11-06.csv">Dataset</a>
-        <a href="downloads/dubai-property-listing.schema.json">Schema</a>
-      </div>
-    </article>
-  </section>
-
-  <section class="section">
-    <h3>Design rules</h3>
-    <div class="rules">
-      <div class="rule"><b>Stable marketplace IDs</b><span>Titles and prices change; the marketplace ID is the deduplication key.</span></div>
-      <div class="rule"><b>Numeric + display prices</b><span>Aggregate on <code>price</code>, QA against <code>priceDisplay</code>.</span></div>
-      <div class="rule"><b>Null, not zero</b><span>Missing salary or mileage stays <code>null</code> — never a fake sentinel.</span></div>
+  <header class="band">
+    <div class="band-meta">
+      <span>Matakupan Labs</span>
+      <span>Data sheet 02 — Marketplace</span>
+      <span>OLX · ID</span>
     </div>
+    <div class="band-main">
+      <div>
+        <p class="stamp">FREE SAMPLE</p>
+        <h1>OLX<br>Listings</h1>
+      </div>
+      <div class="band-side">
+        <span class="period">1–17 October 2026</span>
+        <p>A 25-row slice of public classified listings from OLX Indonesia. Built for schema review, with seller names and contact details left out.</p>
+        <p class="spec">25 rows · 20 columns</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="body">
+    <section aria-labelledby="ledger-title">
+      <div class="section-head">
+        <h2 id="ledger-title">Sample ledger</h2>
+        <span class="micro">3 of 25 rows</span>
+      </div>
+      <div class="table-scroll">
+        <table class="ledger-table">
+          <caption class="sr-only">Three sample rows from the 25-row OLX sample</caption>
+          <thead>
+            <tr>
+              <th scope="col">Title</th>
+              <th scope="col" class="price">Price</th>
+              <th scope="col">City</th>
+              <th scope="col">Condition</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="title">Hakeycaps keycap keyboard mechanical laptop pc biru ice orig</td>
+              <td class="price">Rp 150.000</td>
+              <td class="meta">Jakarta Selatan</td>
+              <td class="meta">Bekas</td>
+            </tr>
+            <tr>
+              <td class="title">MECHANICAL KEYBOARD GAMING VXE ATK68 (HALL EFFECT SENSOR)</td>
+              <td class="price">Rp 1.200.000</td>
+              <td class="meta">Jakarta Selatan</td>
+              <td class="meta">Bekas</td>
+            </tr>
+            <tr>
+              <td class="title">Keycaps analog dreams keyboard mechanical (clone) copy</td>
+              <td class="price">Rp 500.000</td>
+              <td class="meta">Jakarta Selatan</td>
+              <td class="meta">Bekas</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="table-note">Asking prices, not transaction prices. Titles and capitalisation are shown as supplied.</p>
+      <div class="privacy">
+        <span class="privacy-label">Privacy</span>
+        <p>No seller names, phone numbers, emails, or listing links are shown in this sample.</p>
+      </div>
+    </section>
+
+    <aside class="plate" aria-label="Sample file details">
+      <p class="plate-label">Specimen 02 / Data plate</p>
+      <dl>
+        <div><dt>Rows</dt><dd class="hl">25</dd></div>
+        <div><dt>Columns</dt><dd>20</dd></div>
+        <div><dt>File</dt><dd>12,791 bytes</dd></div>
+        <div><dt>Window</dt><dd>1–17 October 2026</dd></div>
+        <div><dt>Source</dt><dd>Public OLX data</dd></div>
+        <div><dt>Privacy</dt><dd>No seller names</dd></div>
+      </dl>
+      <a class="btn" href="downloads/olx-sample-2026-11-03.csv" download>Download CSV <span>25 rows</span></a>
+      <p class="micro">Download CSV without login</p>
+      <a class="url" href="https://fauzimatakupan.github.io/indonesian-marketplace-data/">fauzimatakupan.github.io/indonesian-marketplace-data</a>
+      <p class="plate-foot">Small, keyword-specific snapshot. Not a representative market sample.</p>
+    </aside>
+  </div>
+
+  <section class="columns-section" aria-labelledby="cols-title">
+    <div class="section-head">
+      <h2 id="cols-title">What is in each row</h2>
+      <span class="micro">20 columns</span>
+    </div>
+    <dl class="cols">
+      <div class="cols-row">
+        <dt>Listing</dt>
+        <dd><code>adId</code>, <code>name</code>, <code>adDescription</code>, <code>price</code>, <code>priceDisplay</code>, <code>condition</code>, <code>itemType</code>, <code>categoryId</code></dd>
+      </div>
+      <div class="cols-row">
+        <dt>Place</dt>
+        <dd><code>country</code>, <code>region</code>, <code>city</code>, <code>district</code></dd>
+      </div>
+      <div class="cols-row">
+        <dt>Seller &amp; status</dt>
+        <dd><code>sellerType</code>, <code>sellerKyc</code>, <code>favorites</code>, <code>createdAt</code>, <code>isNew</code>, <code>status</code></dd>
+      </div>
+      <div class="cols-row">
+        <dt>Trace</dt>
+        <dd><code>url</code>, <code>query</code></dd>
+      </div>
+    </dl>
   </section>
 
-  <section class="section">
-    <h3>Recurring collection</h3>
-    <p class="lead" style="font-size:15px;margin-bottom:8px">
-      The samples are free. For scheduled collection, these Apify Actors produce the same schemas:
-      <a href="https://apify.com/matakupanlabs/olx-indonesia-listings-scraper">OLX</a>,
-      <a href="https://apify.com/matakupanlabs/indonesia-tech-jobs-scraper">4 job boards</a>,
-      <a href="https://apify.com/matakupanlabs/carsome-used-car-scraper">Carsome</a>,
-      <a href="https://apify.com/matakupanlabs/dubai-property-listings-scraper">Dubai property</a>.
-      They are pay-per-result; the data and schemas here are not.
-    </p>
+  <section class="more" aria-labelledby="more-title">
+    <div class="section-head">
+      <h2 id="more-title">More datasets</h2>
+      <span class="micro">In this repository</span>
+    </div>
+    <ul class="index">
+      <li class="index-row">
+        <span class="idx">03</span>
+        <span class="index-name">Indonesian job boards</span>
+        <span class="index-meta">8 rows · 4 portals</span>
+        <span class="index-links">
+          <a href="downloads/jobs-sample-2026-11-03.csv" aria-label="Download Indonesian job boards CSV">CSV</a>
+          <a href="downloads/job-listing.schema.json" aria-label="Open job listing schema">Schema</a>
+        </span>
+      </li>
+      <li class="index-row">
+        <span class="idx">04</span>
+        <span class="index-name">Carsome used cars</span>
+        <span class="index-meta">10 rows · 29 Oct 2026</span>
+        <span class="index-links">
+          <a href="downloads/carsome-sample-2026-10-29.csv" aria-label="Download Carsome sample CSV">CSV</a>
+          <a href="downloads/carsome-listing.schema.json" aria-label="Open Carsome listing schema">Schema</a>
+        </span>
+      </li>
+      <li class="index-row">
+        <span class="idx">05</span>
+        <span class="index-name">Dubai property</span>
+        <span class="index-meta">40 rows · 6 Nov 2026</span>
+        <span class="index-links">
+          <a href="downloads/dubai-sample-2026-11-06.csv" aria-label="Download Dubai property sample CSV">CSV</a>
+          <a href="downloads/dubai-property-listing.schema.json" aria-label="Open Dubai property schema">Schema</a>
+        </span>
+      </li>
+    </ul>
   </section>
 
   <footer>
-    <span>MIT (code/schema) · data sample notice</span>
-    <a href="https://github.com/FauziMatakupan/indonesian-marketplace-data">GitHub</a>
-    <span>Independent project — not affiliated with the marketplaces.</span>
+    <div class="footer-row">
+      <span>Matakupan Labs — Marketplace data</span>
+      <a href="https://github.com/FauziMatakupan/indonesian-marketplace-data">Source repository</a>
+    </div>
+    <p class="footer-note">Independent project. Not affiliated with OLX, Carsome, Glints, Kalibrr, Dealls, Pintarnya, PropertyFinder, or any brokerage. Rights in the original listings remain with the marketplace and listing owners.</p>
+    <p class="footer-disclaimer">Free sample · No seller names · Not a representative market sample</p>
   </footer>
 </main>
 </body>
