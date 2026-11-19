@@ -20,6 +20,7 @@ prototyping, and teaching. For recurring collection, use the Actors linked below
 | Dataset | Rows | Snapshot | Files |
 |---|---|---|---|
 | OLX Indonesia listings | 25 | 2026-11-03 | [JSON](datasets/olx-indonesia/sample-2026-11-03.json) · [CSV](datasets/olx-indonesia/sample-2026-11-03.csv) |
+| OLX Indonesia computer and laptop listings | 1,000 | 2026-11-15 | [CSV](datasets/olx-indonesia/sample-2026-11-15-1000.csv) |
 | Indonesian job boards (4 portals) | 8 | 2026-11-03 | [JSON](datasets/job-boards/sample-2026-11-03.json) · [CSV](datasets/job-boards/sample-2026-11-03.csv) |
 | Carsome used cars | 10 | 2026-10-29 | [JSON](datasets/carsome/sample-2026-10-29.json) · [CSV](datasets/carsome/sample-2026-10-29.csv) |
 | Dubai property listings | 40 | 2026-11-06 | [JSON](datasets/dubai-propertyfinder/sample-2026-11-06.json) · [CSV](datasets/dubai-propertyfinder/sample-2026-11-06.csv) |

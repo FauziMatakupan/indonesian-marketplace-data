@@ -5,6 +5,7 @@ A real 25-row snapshot of public OLX Indonesia classified listings for the searc
 
 - `sample-2026-11-03.json` — 25 records, UTF-8 JSON array
 - `sample-2026-11-03.csv` — same records as CSV
+- `sample-2026-11-15-1000.csv` — 1,000 records from the Komputer & Laptop category, collected on **15 November 2026**, 20 columns
 - Schema: [`../../schemas/olx-listing.schema.json`](../../schemas/olx-listing.schema.json)
 
 ## Fields
@@ -39,6 +40,7 @@ A real 25-row snapshot of public OLX Indonesia classified listings for the searc
 ## Limitations
 
 - 25 rows from one keyword — do not use this to estimate market prices.
+- The 1,000-row file covers one category on one date. Prices are asking prices, not transaction prices, and listings may be sold or removed.
 - Asking prices, not transaction prices; listings may be sold or removed.
 - Duplicate or republished listings are possible; `adId` is the stable key.
 - Descriptions are seller-written and may contain typos or promotional text.
