@@ -5,7 +5,11 @@ A real 25-row snapshot of public OLX Indonesia classified listings for the searc
 
 - `sample-2026-11-03.json` — 25 records, UTF-8 JSON array
 - `sample-2026-11-03.csv` — same records as CSV
-- `sample-2026-11-15-1000.csv` — 1,000 records from the Komputer & Laptop category, collected on **15 November 2026**, 20 columns
+- `sample-2026-11-15-1000.csv` — 1,000 records from the Komputer & Laptop category, collected on **15 November 2026**, 19 columns
+- `sample-2026-11-15-1000.parquet` — same 1,000 records, typed columns
+- `data-dictionary-2026-11-15.csv` — column types, missing counts, descriptions, examples
+- `olx-listing.schema.json` — JSON Schema draft-07 for this dataset
+- `starter-eda.ipynb` — starter notebook for price, condition, city, and item-type summaries
 - Schema: [`../../schemas/olx-listing.schema.json`](../../schemas/olx-listing.schema.json)
 
 ## Fields
